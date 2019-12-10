@@ -35,7 +35,7 @@ error_log(print_r($str,true));
 if ($str) {
 	;
 } else {
-	$web_root = preg_replace("dashboard/", "", $web_root);
+	$web_root = preg_replace("/(domain)/dashboard/", "\\1", $web_root);
 }
 //$web_root = preg_replace("domain/", "", $web_root); 
 
