@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteRule ^/?test.html$ test.php [L]
+RewriteRule ^/?domainn/dashboard/([\._/a-zA-Z]{2,})$ domainn/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule  ^/?domain/dashboard/([\._/a-zA-Z]{2,})$ domain/$1 [L]
+RewriteRule ^/?domain/dashboard/(_includes/theme/bootstrap/css/bootstrap.min.css)$ domain/$1 [L]
