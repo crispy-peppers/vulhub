@@ -3,5 +3,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule  ^/?domain/dashboard/([\._/a-zA-Z0-9\-]{2,})$ domain/$1 [L]
 RewriteRule  ^/?domain/domains/([\._/a-zA-Z0-9\-]{2,})$ domain/$1 [L]
-RewriteRule  ^/?domain/(defaults|bulk|ssl|assets|segments|display|dw)/([\._/a-zA-Z0-9\-]{2,})$ domain/$2 [L]
+RewriteRule  ^/?domain/(.*?)/(_includes/.{2,})$ domain/$2 [L]
+RewriteRule  ^/?domain/(.*?)/(images/.{2,})$ domain/$2 [L]
+#RewriteRule  ^/?domain/assets/([\._/a-zA-Z0-9\-]{2,})$ domain/$1 [L]
+#RewriteRule  ^/?domain/dashboard/$ domain/dashboard [L]
+#RewriteRule  ^/?domain/(defaults|bulk|ssl|assets|segments|display|dw)/([\._/a-zA-Z0-9\-]{2,})$ domain/$2 [L]
+#RewriteRule  ^/?domain/([\._/a-zA-Z0-9\-]{2,})$ %{HTTP:X-Original-URI}/$1 [R=301,L]
 # RewriteRule  ^/?domain/(bulk|ssl)/([\._/a-zA-Z0-9\-]{2,})$ domain/$1 [L]
