@@ -1,13 +1,7 @@
 RewriteEngine on
-RewriteRule ^/?test.html$ test.php [L]
-RewriteRule ^/?domainn/dashboard/([\._/a-zA-Z]{2,})$ domainn/$1 [L]
-RewriteRule ^/?domainn/_includes/([\._/a-zA-Z]{2,})$ domainn/$1 [L]
-
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
 RewriteRule  ^/?domain/dashboard/([\._/a-zA-Z0-9\-]{2,})$ domain/$1 [L]
 RewriteRule  ^/?domain/domains/([\._/a-zA-Z0-9\-]{2,})$ domain/$1 [L]
-RewriteRule  ^/?domain/(bulk)/([\._/a-zA-Z0-9\-]{2,})$ domain/$1 [L]
+RewriteRule  ^/?domain/(defaults|bulk|ssl|assets|segments|display|dw)/([\._/a-zA-Z0-9\-]{2,})$ domain/$2 [L]
 # RewriteRule  ^/?domain/(bulk|ssl)/([\._/a-zA-Z0-9\-]{2,})$ domain/$1 [L]
