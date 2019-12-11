@@ -21,22 +21,15 @@
 ?>
 <?php
 // Path Settings
-$web_root = '/domain'; // don't include trailing slash (if you're installing in the root just leave this blank)
+#$web_root = '/domain'; // don't include trailing slash (if you're installing in the root just leave this blank)
+$web_root = $_SERVER[ 'HTTP_X_ORIGINAL_URI' ];
+$matches=[];
+$str = preg_match("/^(\/.*?\/domain)/",$web_root,$matches);
+$web_root = $matches[0];
+#error_log(print_r($web_root,true));
 
 // Database Settings
 $dbhostname = 'localhost';
 $dbname = 'domain';
 $dbusername = 'username';
 $dbpassword = 'password';
-$web_root = $_SERVER[ 'HTTP_X_ORIGINAL_URI' ];
-error_log(print_r($web_root,true));
-$str = preg_match("/dashboard\/$/",$web_root);
-error_log(print_r($str,true));
-if ($str) {
-	;
-} else {
-	$web_root = preg_replace("/(domain)/dashboard/", "\\1", $web_root);
-}
-//$web_root = preg_replace("domain/", "", $web_root); 
-
-error_log(print_r($web_root,true));
